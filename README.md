@@ -11,14 +11,11 @@ This project involves the analysis of solar radiation data to understand pattern
 - [Methodology](#methodology)
 - [Results](#results)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Installation
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/solar-radiation-analysis.git
-   cd solar-radiation-analysis
+   git clone https://github.com/getahunTiruneh/SolarStrategy-Insight.git
+   cd SolarStrategy-Insight
