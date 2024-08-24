@@ -102,5 +102,44 @@ class DataVisualization:
         ax.set_theta_direction(-1)  # Clockwise direction
         ax.set_title('Wind Speed and Direction Polar Plot')
         ax.set_rlabel_position(90)  # Position the radial labels
+        plt.show()
         
+    def plot_time_series(self, columns, title, ylabel):
+        """
+        Plots time series data for the specified columns.
+
+        Parameters:
+        - columns: List of column names to plot.
+        - title: Title of the plot.
+        - ylabel: Label for the y-axis.
+        """
+        plt.figure(figsize=(14, 8))
+        self.data[columns].plot()
+        plt.title(title)
+        plt.xlabel('Time')
+        plt.ylabel(ylabel)
+        plt.legend(loc='upper right')
+        plt.show()
+
+    def plot_cleaning_impact(self,sensor_columns):
+        """
+        Compares sensor readings before and after data cleaning.
+
+        Parameters:
+        - sensor_columns: List of sensor columns to plot.
+         """
+        fig, ax = plt.subplots(2, 1, figsize=(10, 6), sharex=True)
+
+        # Before cleaning
+        self.data[self.data['Cleaning'] == 0][sensor_columns].plot(ax=ax[0])
+        ax[0].set_title('Sensor Readings Before Cleaning')
+        ax[0].set_ylabel('Sensor Values')
+
+        # After cleaning
+        self.data[self.data['Cleaning'] == 1][sensor_columns].plot(ax=ax[1])
+        ax[1].set_title('Sensor Readings After Cleaning')
+        ax[1].set_xlabel('Time')
+        ax[1].set_ylabel('Sensor Values')
+
+        plt.tight_layout()
         plt.show()
